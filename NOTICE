@@ -1,0 +1,41 @@
+NOTICE: 해안쓰레기 검출 베이스라인 (UNet-ResNet18)
+
+이 패키지에 포함된 구성요소의 출처와 라이선스를 안내합니다. 라이선스 원문은 같은 폴더의
+LICENSE 파일에 있습니다.
+
+1. 상위 저작물
+
+  - segmentation_models_pytorch (UNet 구현)
+    https://github.com/qubvel-org/segmentation_models.pytorch (MIT License)
+    이 패키지에 동봉하지 않으며 requirements.txt 로 설치됩니다.
+
+  - ResNet18 ImageNet 사전학습 가중치 (인코더 초기화에 사용)
+    원본 https://github.com/pytorch/vision (BSD-3-Clause)
+    실제 내려받는 곳 https://huggingface.co/smp-hub/resnet18.imagenet
+    (segmentation_models_pytorch 0.5 의 재배포본이며 학습 시 1회만 사용했습니다)
+    파인튜닝 가중치 안에 인코더 파라미터로 포함되어 있습니다.
+
+  - torch (BSD-3-Clause), numpy (BSD-3-Clause), pillow (MIT-CMU)
+    requirements.txt 로 설치됩니다.
+
+2. 이 패키지의 산출물
+
+  - assets/model/unet_r18_debris_lite.pt
+    위 구조를 주최 측 자료로 파인튜닝한 가중치입니다. AIFactory(국립공원공단 AI 챌린지 2026 운영사)가
+    작성했으며, 대회 참가 목적으로 자유롭게 사용, 수정, 재학습하실 수 있습니다.
+
+  - predict.ipynb
+    가중치를 불러 추론하고 결과를 대회 제출 규격(prediction.csv)으로 저장하는 코드입니다.
+    AIFactory가 작성했으며, 대회 참가 목적으로 자유롭게 사용, 수정하실 수 있습니다.
+
+3. 참가자 파생물
+
+  이 패키지의 구성요소(predict.ipynb, assets/model/unet_r18_debris_lite.pt)와 1번 상위 저작물의
+  라이선스를 기준으로, 이 패키지를 바탕으로 만든 참가자의 가중치와 코드에 카피레프트나 별도
+  약관이 전파되지 않습니다. 주최 측이 학습에 쓴 자료는 이 패키지에 포함되지 않으며 참가자에게
+  어떤 의무도 발생시키지 않습니다.
+
+
+[참가자 추가] Built with DINOv3.
+이 제출물의 일부 모델은 Meta DINOv3 사전학습 가중치(timm/vit_small_patch16_dinov3.lvd1689m)로
+초기화했으며 DINOv3 License 를 따릅니다: https://ai.meta.com/resources/models-and-libraries/dinov3-license/

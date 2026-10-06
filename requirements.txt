@@ -1,0 +1,7 @@
+# Scoring server (installed before inference, 10-min install limit, GPU: A10G)
+torch>=2.5
+segmentation-models-pytorch>=0.5
+timm>=1.0.30
+numpy>=2.0
+pillow>=10.0
+scipy>=1.11

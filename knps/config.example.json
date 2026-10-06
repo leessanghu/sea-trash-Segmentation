@@ -1,0 +1,100 @@
+{
+  "models": [
+    "assets/model/model0.pt",
+    "assets/model/model1.pt",
+    "assets/model/model2.pt",
+    "assets/model/model3.pt",
+    "assets/model/model4.pt",
+    "assets/model/model5.pt"
+  ],
+  "tta": 8,
+  "batch": 32,
+  "cfg": {
+    "t_pix": 0.5,
+    "t_img": 0.4,
+    "alpha": 0.25,
+    "min_area": 0,
+    "min_cc": 10,
+    "close": 0,
+    "rescue_px": 80,
+    "dilate": 1
+  },
+  "val": {
+    "score": 0.8205766625364785,
+    "f1": 0.9481933791936519,
+    "shape": 0.6929599458793052,
+    "tp": 99,
+    "fn": 1,
+    "fp": 89,
+    "tn": 706,
+    "full_val_score": 0.7958440713985815
+  },
+  "val_folders": "/content/data/real_val",
+  "test_pos_ratio": 0.64,
+  "sources": [
+    "/content/drive/MyDrive/sea_trash_data/runs_v5/unet_r18_base_x2/best.pt",
+    "/content/drive/MyDrive/sea_trash_data/runs_v5/unet_cnxt_t_x2/best.pt",
+    "/content/drive/MyDrive/sea_trash_data/runs_v5/dino_s/best.pt",
+    "/content/drive/MyDrive/sea_trash_data/runs_v5/dino3_s/best.pt",
+    "/content/drive/MyDrive/sea_trash_data/runs_v5/dino3_s_lora/best.pt",
+    "/content/drive/MyDrive/sea_trash_data/runs_v5/dino_s_dora/best.pt"
+  ],
+  "specs": [
+    {
+      "kind": "smp",
+      "arch": "unet",
+      "encoder": "resnet18",
+      "in_scale": 2
+    },
+    {
+      "kind": "smp",
+      "arch": "unet",
+      "encoder": "tu-convnext_tiny",
+      "in_scale": 2
+    },
+    {
+      "kind": "dino",
+      "vit": "vit_small_patch14_dinov2.lvd142m",
+      "dino_size": 448
+    },
+    {
+      "kind": "dino",
+      "vit": "vit_small_patch16_dinov3.lvd1689m",
+      "dino_size": 448
+    },
+    {
+      "kind": "dino",
+      "vit": "vit_small_patch16_dinov3.lvd1689m",
+      "dino_size": 448
+    },
+    {
+      "kind": "dino",
+      "vit": "vit_small_patch14_dinov2.lvd142m",
+      "dino_size": 448
+    }
+  ],
+  "license_notes": [
+    "DINOv3 License (Meta): 재배포 시 라이선스 사본 동봉 + 'Built with DINOv3' 표기 의무. 수상 시 모델 양도와 충돌하지 않는지 운영진 확인 필요"
+  ],
+  "weights": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "tta_scales": [
+    1.0
+  ],
+  "tiny_px": 30,
+  "dumped": false,
+  "overrides": {
+    "t_pix": 0.5,
+    "t_img": 0.4,
+    "alpha": 0.25,
+    "min_cc": 10,
+    "rescue_px": 80,
+    "dilate": 1
+  }
+}
